@@ -3,7 +3,7 @@ Cappuccino language is the imperative C based language. List of language functio
 - Types: `int`, `bool`, `string`
 - `While`, `if-else`, `for` loop with "read-only" variables, scope statements
 - `break` and `continue` statements
-- Functions: passing argument by value, return type, typed function's arguments, recursion
+- Functions: passing argument by value, return type, typed function's arguments, recursion, nested functions
 - `% + - * / ( )` arithmetic, comparisons
 - boolean arithmetic not, and, or: `! && ||`
 - Variables assign, arithmetic, comparison, `+=`, `-=`, `++`, `--`
