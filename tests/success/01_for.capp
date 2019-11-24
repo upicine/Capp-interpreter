@@ -1,0 +1,14 @@
+int main() {
+    for (i := 5 to 17) {
+        if (i == 16) {
+            print(i);
+        } else {
+            continue;    
+        }
+        
+        print("Show only if i == 16");
+    }
+
+    return 0;
+};
+

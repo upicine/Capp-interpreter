@@ -1,0 +1,9 @@
+int main() {
+    int n := 10;
+    for (i := 0 to n) {
+        i = 1;
+    }
+
+    return 0;
+};
+

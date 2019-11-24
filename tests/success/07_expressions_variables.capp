@@ -1,0 +1,13 @@
+int main() {
+    int x := 3 + 4 * 5 / 2;
+    bool b := ! ((true || false) && false);
+    bool b2 := b;
+    int y;
+
+    y = x;
+
+    print(y);
+    print(b2);
+
+    return 0;
+};

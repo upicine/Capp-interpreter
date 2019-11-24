@@ -1,0 +1,18 @@
+int function() {
+    int x := 2;
+    int y := 3;
+    int nested_function(int z) {
+        return y + z;
+    };
+
+    return nested_function(x);
+};
+
+
+int main() {
+//  should print 5
+    print(function());
+
+    return 0;
+};
+

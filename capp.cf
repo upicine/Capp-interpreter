@@ -1,0 +1,74 @@
+comment "//" ;
+
+Program.   Program ::= [Decl] ;
+terminator Decl ";" ;
+
+BDeclBlock. Block ::= "{" [Decl] [Stmt] "}" ;
+
+SBlock.     Stmt  ::= Block ;
+separator   Stmt  "" ;
+SWhile.     Stmt  ::= "while" "(" Expr ")" Block ;
+SFor.       Stmt  ::= "for" "(" Ident ":=" Expr "to" Expr ")" Block;
+SAss.       Stmt  ::= Ident "=" Expr ";" ;
+SIncr.      Stmt  ::= Ident "++" ";" ;
+SDecr.      Stmt  ::= Ident "--" ";" ;
+SAssOp.     Stmt  ::= Ident OpAss Expr ";" ;
+SIf.        Stmt  ::= "if" "(" Expr ")" Block;
+SIfEl.      Stmt  ::= "if" "(" Expr ")" Block "else" Block ;
+SReturnE.   Stmt  ::= "return" Expr ";" ;
+SCont.      Stmt  ::= "continue" ";" ;
+SBreak.     Stmt  ::= "break" ";" ;
+SPrint.     Stmt  ::= "print" "(" Expr ")" ";" ;
+SExpr.      Stmt  ::= Expr ";" ;
+
+OAssP.      OpAss ::= "+=" ;
+OAssM.      OpAss ::= "-=" ;
+
+DefVar.     Decl ::= Type [Ident] ;
+DefVarExp.  Decl ::= Type Ident ":=" Expr ;
+DefFunc.    Decl ::= Type Ident "(" [Arg] ")" Block ;
+
+Arg.        Arg  ::= Type Ident;
+separator   Arg  "," ;
+
+separator nonempty Ident "," ;
+
+Int.       Type ::= "int" ;
+Str.       Type ::= "string" ;
+Bool.      Type ::= "bool" ;
+
+EStr.       Expr5 ::= String ;
+EVar.       Expr5 ::= Ident ;
+EInt.       Expr5 ::= Integer ;
+ETrue.      Expr5 ::= "true" ;
+EFalse.     Expr5 ::= "false" ;
+EApp.       Expr5 ::= Ident "(" [Expr] ")" ;
+EUnar.      Expr4 ::= OpUnar Expr5 ;
+EMul.       Expr3 ::= Expr3 OpMul Expr4 ;
+EAdd.       Expr2 ::= Expr2 OpAdd Expr3 ;
+ECmp.       Expr1 ::= Expr1 OpCmp Expr2 ;
+ELog.       Expr0 ::= Expr1 OpLog Expr0 ;
+
+_.          Expr  ::= Expr0 ;
+_.          Expr0 ::= Expr1 ;
+_.          Expr1 ::= Expr2 ;
+_.          Expr2 ::= Expr3 ;
+_.          Expr3 ::= Expr4 ;
+_.          Expr4 ::= Expr5 ;
+_.          Expr5 ::= "(" Expr ")" ;
+
+separator Expr "," ;
+
+OMod.       OpMul  ::= "%"  ;
+OMul.       OpMul  ::= "*"  ;
+ODiv.       OpMul  ::= "/"  ;
+OPlus.      OpAdd  ::= "+"  ;
+OMinus.     OpAdd  ::= "-"  ;
+OLt.        OpCmp  ::= "<"  ;
+OGt.        OpCmp  ::= ">"  ;
+OLte.       OpCmp  ::= "<=" ;
+OGte.       OpCmp  ::= ">=" ;
+OEq.        OpCmp  ::= "==" ;
+OAnd.       OpLog  ::= "&&" ;
+OOr.        OpLog  ::= "||" ;
+ONot.       OpUnar ::= "!"  ;

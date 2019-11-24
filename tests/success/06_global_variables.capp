@@ -1,0 +1,11 @@
+int x := 5;
+
+int add_global(int y) {
+    return x + y;
+};
+
+int main() {
+// expected result = 10
+    print(add_global(5));
+    return 0;
+};
